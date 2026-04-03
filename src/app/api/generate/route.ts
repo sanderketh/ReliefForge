@@ -5,6 +5,14 @@ import { prisma } from '@/lib/prisma'
 import { generateSTLBuffer, resampleGrayscale, RESOLUTION_SIZES } from '@/lib/stl-generator'
 import sharp from 'sharp'
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb', // voor grote image uploads
+    },
+  },
+}
+
 export const maxDuration = 60 // seconds
 
 export async function POST(req: NextRequest) {
