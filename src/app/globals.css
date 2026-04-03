@@ -1,0 +1,109 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --forge-orange: #dc5a14;
+    --forge-dark:   #0c0a09;
+    --forge-stone:  #1c1917;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0c0a09;
+    color: #fafaf9;
+  }
+
+  ::selection {
+    background: rgba(220, 90, 20, 0.4);
+    color: #fafaf9;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1c1917;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #57534e;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #dc5a14;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #f5c89d 0%, #dc5a14 50%, #a33010 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-forge-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(220,90,20,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(163,48,16,0.06) 0%, transparent 40%),
+      linear-gradient(180deg, #0c0a09 0%, #1c1917 100%);
+  }
+
+  .card-glow {
+    box-shadow: 
+      0 0 0 1px rgba(220,90,20,0.15),
+      0 4px 24px rgba(0,0,0,0.4),
+      0 1px 2px rgba(0,0,0,0.6);
+  }
+
+  .card-glow:hover {
+    box-shadow: 
+      0 0 0 1px rgba(220,90,20,0.3),
+      0 8px 32px rgba(0,0,0,0.5),
+      0 0 24px rgba(220,90,20,0.1);
+  }
+
+  .btn-forge {
+    @apply bg-forge-600 hover:bg-forge-500 active:bg-forge-700 
+           text-white font-medium px-6 py-3 rounded-lg 
+           transition-all duration-200 
+           shadow-lg shadow-forge-900/50
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply border border-stone-700 hover:border-stone-500
+           text-stone-300 hover:text-stone-100
+           px-6 py-3 rounded-lg
+           transition-all duration-200;
+  }
+
+  .input-forge {
+    @apply w-full bg-stone-900 border border-stone-700 
+           focus:border-forge-500 focus:outline-none focus:ring-2 focus:ring-forge-500/20
+           text-stone-100 placeholder:text-stone-600
+           rounded-lg px-4 py-3
+           transition-all duration-200;
+  }
+
+  .ad-placeholder {
+    @apply border-2 border-dashed border-stone-700 rounded-xl
+           flex items-center justify-center
+           text-stone-600 text-sm font-mono
+           bg-stone-900/30;
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npx prisma generate && next build",
+  "installCommand": "npm install",
+  "regions": ["iad1"],
+  "functions": {
+    "src/app/api/generate/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
